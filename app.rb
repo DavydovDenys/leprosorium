@@ -64,7 +64,7 @@ post '/new' do
 	# сохраненеие данных в БД	
 
 	@db.execute 'INSERT INTO "Posts"(content, created_date) VALUES(?, datetime())', [content]
-	erb "<h2>Пост отправлен</h2>"
+	erb redirect to '/'
 end
 
 
