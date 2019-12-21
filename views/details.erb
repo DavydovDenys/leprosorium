@@ -3,6 +3,14 @@
 	<%= @raw['content'] %>
 	<br/>
 	<br/>
-	Added at <%= @raw['created_date'] %>
-	
+	Added at <%= @raw['created_date'] %>	
+</p>
+<br/>
+<h4>Comments:</h4>
+<p>
+	<form action="/details/@raw['id'] %>" method="POST">
+		<textarea name="content" class="form-control" rows="10" placeholder="type comment text here"></textarea> 		
+  		<br/>
+  		<button type="submit" class="btn btn-primary">Add comment</button>
+	</form>
 </p>
