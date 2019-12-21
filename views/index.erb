@@ -1,1 +1,12 @@
-<h2>Последние посты</h2>
+<h2>Последние посты:</h2>
+<br/>
+<% @result.each do |item|%>
+	<p>
+		<%= item['content'] %>
+		<br/>
+		<br/>
+		Added at <%= item['created_date'] %>
+	</p>
+	<hr/>
+
+<% end %>
