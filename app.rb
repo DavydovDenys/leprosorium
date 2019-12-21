@@ -74,7 +74,9 @@ end
 
 get '/details/:post_id' do
 	post_id = params[:post_id]
-	erb "Post id - #{post_id}"
+	result = @db.execute 'SELECT * FROM "Posts" WHERE ID = ?', [post_id]
+	@raw = result[0]
+	erb :details
 end
 
 
