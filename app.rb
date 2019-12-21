@@ -83,9 +83,20 @@ end
 # вывод информации о посте
 
 get '/details/:post_id' do
+
+	# получаем переменную из url'a
+
 	post_id = params[:post_id]
+
+	# получаем список постов
+	# (у нас будет только один пост)
 	result = @db.execute 'SELECT * FROM "Posts" WHERE ID = ?', [post_id]
+
+	# выбираем этот пост в переменную @raw
 	@raw = result[0]
+
+	@comments = @db.execute 'SELECT * FROM "Comments" WHERE POST_ID = ? ORDER BY ID', [post_id] 
+
 	erb :details
 end
 
